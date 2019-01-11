@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:element name="periodes" type="periodesType"/>
+  <xs:complexType name="lijnenType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="lijn" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="periodeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="dataownercode"/>
+      <xs:element type="xs:dateTime" name="startdatum"/>
+      <xs:element type="xs:date" name="einddatum"/>
+      <xs:element type="xs:boolean" name="isbaseline"/>
+      <xs:element type="xs:boolean" name="isgepubliceerd"/>
+      <xs:element type="xs:dateTime" name="publicatiedatum"/>
+      <xs:element type="xs:short" name="index"/>
+      <xs:element type="xs:short" name="versie"/>
+      <xs:element type="xs:string" name="pptfile" minOccurs="0"/>
+      <xs:element type="xs:string" name="zipfile"/>
+      <xs:element type="lijnenType" name="lijnen"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="key" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="periodesType">
+    <xs:sequence>
+      <xs:element type="xs:dateTime" name="mutatiedatum"/>
+      <xs:element type="xs:short" name="lastindex"/>
+      <xs:element type="periodeType" name="periode" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
